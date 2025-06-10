@@ -3,8 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Mail } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import CollectEmails from '@/components/forms/CollectEmails';
 import { useToast } from '@/hooks/use-toast';
 
 const Newsletter = () => {
@@ -70,27 +69,9 @@ const Newsletter = () => {
               DataPulse is coming soon! Subscribe to our newsletter to be the first to know when we launch and get exclusive early access.
             </p>
             
-            <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  className="flex-grow py-6 px-4 text-base"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <Button 
-                  type="submit"
-                  className="bg-royalBlue hover:bg-royalBlue/90 text-white py-6 px-8 font-medium"
-                >
-                  Subscribe
-                </Button>
-              </div>
-              <p className="text-sm text-gray-500 mt-3">
-                We respect your privacy. Unsubscribe at any time.
-              </p>
-            </form>
+            <div className='flex justify-center items-center'>
+              <CollectEmails />
+            </div>
           </div>
         </div>
       </div>
