@@ -15,7 +15,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="bg-royalBlue relative pt-20 pb-12 sm:pt-24 md:pt-28 lg:pt-32 md:pb-16 lg:pb-24 overflow-hidden h-[100vh] md:min-h-[650px] md:h-[85vh]">
+    <section className="bg-royalBlue relative pt-20 pb-12 sm:pt-24 md:pt-28 lg:pt-32 md:pb-16 lg:pb-24 overflow-hidden h-[120vh] md:min-h-[650px] md:h-[85vh]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 h-full flex items-center relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-4 items-center w-full">
           {/* Hero Text */}
