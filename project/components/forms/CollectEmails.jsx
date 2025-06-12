@@ -1,53 +1,38 @@
 'use client';
 import { useState, useRef } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
 
 const EmailCollect = () => {
     const [email, setEmail] = useState('');
     const [status, setStatus] = useState('idle');
     const [message, setMessage] = useState('');
-    const recaptchaRef = useRef(null);
 
-    const GOOGLE_SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        if (!email) {
-            setStatus('error');
-            setMessage('Please enter a valid email address.');
-            return;
-        };
-
-        setStatus('loading');
-        setMessage('');
+    const submit = async (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
 
         try {
-            const response = await fetch(GOOGLE_SCRIPT_URL, {
+            const response = await fetch("https://script.google.com/macros/s/AKfycby2I1BJWQ1h7RGIw92uJ5XtkLlPhbkwCIO5SmU_l8GJiwGH_vqnEOLiOQ_66a9lamE-/exec", {
                 method: 'POST',
-                mode: 'no-cors',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: JSON.stringify({ email }),
+                body: new URLSearchParams({ email }),
             });
 
             setStatus('success');
-            setMessage('Thank you for signing up! We will notify you when we launch.');
+            setMessage('Thank you for submitting your email!');
             setEmail('');
         } catch (e) {
-            console.error('Error:', e);
-            setMessage('An error occurred. Please try again later.');
-            setStatus('error');
-            return;
+            setStatus('failed')
+            setMessage('There was an error submitting your email. Please try again in a few minutes!');
         }
-    };
+    }
 
     if (status === 'success') {
         return (
             <>
             {message && (
-                <p className={`mt-4 text-sm text-semibold px-8 py-2 border-2 rounded-lg bg-steelBlue/20 ${status === 'success' ? 'text-gray-600' : 'text-red-500'}`}>
+                <p className={`mt-4 text-sm text-semibold px-8 py-2 border-2 rounded-lg bg-steelBlue/20 ${status === 'success' ? 'text-royalBlue-600' : 'text-red-500'}`}>
                     {message}
                 </p> 
             )}
@@ -56,20 +41,20 @@ const EmailCollect = () => {
     }
 
     return (
-        // 
-        <form onSubmit={handleSubmit} className="mt-4 flex items-center gap-2">
+        <form onSubmit={submit} className="mt-4 flex items-center gap-2 flex flex-col sm:flex-row">
             <input 
                 type="email" 
-                placeholder="e.g., johndoe@gmail.com" 
-                className="px-8 py-2 border-2 border-royalBlue rounded-lg focus:outline-none cursor-pointer bg-[#F9F9FA]"
+                name="email"
                 value={email}
+                placeholder="johndoe@email.com" 
+                className="w-full sm:w-auto px-8 py-2 text-royalBlue border-2 border-royalBlue rounded-lg focus:outline-none cursor-pointer bg-cream/20"
                 onChange={(event) => setEmail(event.target.value)}
                 required
             />
             <button 
                 type="submit"
                 disabled={status === 'loading'}
-                className="bg-royalBlue text-white px-8 py-2 rounded-lg hover:border-2 border-royalBlue border-2 hover:bg-cream hover:text-royalBlue cursor-pointer transition duration-150 ease-in-out">
+                className="w-full sm:w-auto bg-royalBlue text-white px-8 py-2 rounded-lg hover:border-2 border-royalBlue border-2 hover:bg-cream/20 hover:text-royalBlue cursor-pointer transition duration-150 ease-in-out">
                 {status === 'loading' ? 'Submitting...' : 'Submit'}
             </button>
           </form>

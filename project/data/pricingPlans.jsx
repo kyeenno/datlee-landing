@@ -1,4 +1,4 @@
-export const pricingPlans = [
+const pricingPlans = [
     {
         id: "free",
         title: "Free Plan",
@@ -26,7 +26,7 @@ export const pricingPlans = [
         unit: "per project",
         isPopular: true,
         buttonText: "Get Started",
-        footerText: "No credit card required to start. 14-day free trial.",
+        footerText: "No credit card required. 14-day free trial.",
         features: [
             { included: true, text: "Unlimited notifications" },
             { included: true, text: "Connect unlimited data sources" },

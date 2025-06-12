@@ -11,7 +11,7 @@ const Newsletter = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [email, setEmail] = useState('');
   const { toast } = useToast();
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -22,56 +22,52 @@ const Newsletter = () => {
       },
       { threshold: 0.1 }
     );
-    
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-    
+
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!email) return;
-    
+
     // In a real app, this would send the email to your backend
     toast({
       title: "Thanks for subscribing!",
       description: "We'll keep you updated on our launch.",
     });
-    
+
     setEmail('');
   };
-  
+
   return (
-    <section ref={sectionRef} className="py-20 bg-steelBlue/50 bg-white" id="newsletter">
-      <div className="max-w-5xl mx-auto px-6 md:px-12">
+    <section ref={sectionRef} className="py-20 bg-cream relative overflow-hidden" id="newsletter">
+      <div className="max-w-5xl mx-auto px-6 md:px-12 relative z-10">
         <div className={cn(
-          "bg-white rounded-2xl shadow-lg p-8 md:p-12 relative overflow-hidden transition-all duration-700 transform",
+          "bg-white rounded-2xl shadow-lg p-8 md:p-12 relative overflow-hidden transition-all duration-700 transform border-2 border-steelBlue/20",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
         )}>
-          <div className="absolute top-0 right-0 w-64 h-64 bg-royalBlue/10 rounded-full transform translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-royalBlue/10 rounded-full transform -translate-x-1/3 translate-y-1/3 blur-3xl"></div>
-          
-          <div className="relative z-10 text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-royalBlue text-white mb-6">
-              <Mail className="h-8 w-8" />
-            </div>
-            
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
-              Stay Updated on Our Launch
-            </h2>
-            <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-              DataPulse is coming soon! Subscribe to our newsletter to be the first to know when we launch and get exclusive early access.
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <p className="font-heading font-bold text-3xl md:text-4xl mb-4 leading-8">
+              Stay
+              <span className='border rounded-xl bg-royalBlue p-2 px-4 text-white m-2'>Tuned</span>
             </p>
-            
-            <div className='flex justify-center items-center'>
-              <CollectEmails />
-            </div>
+            <p className="text-base sm:text-lg text-xl md:text-xl text-gray-700 mt-3 sm:mt-4 md:mt-6 px-2 sm:px-4 md:px-0 mx-auto max-w-sm sm:max-w-md md:max-w-lg">
+              Let us know your email and we will contact you as soon as Datlee gets live!
+            </p>
+          </div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-royalBlue/5 rounded-full transform translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-royalBlue/5 rounded-full transform -translate-x-1/3 translate-y-1/3 blur-3xl"></div>
+
+          <div className='flex justify-center items-center'>
+            <CollectEmails />
           </div>
         </div>
       </div>

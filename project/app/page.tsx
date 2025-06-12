@@ -1,9 +1,9 @@
-import Hero from "@/components/sections/Hero";
-import FeaturesBrief from "@/components/sections/FeaturesBrief";
-import UserFlow from "@/components/sections/UserFlow";
-import Team from "@/components/sections/Team";
-import Pricing from "@/components/sections/Pricing";
-import Newsletter from "@/components/sections/Newsletter";
+import Hero from "@/components/sections/hero/Hero";
+import FeaturesBrief from "@/components/sections/features/FeaturesBrief";
+import UserFlow from "@/components/sections/user-flow/UserFlow";
+import Team from "@/components/sections/team/Team";
+// import Pricing from "@/components/sections/pricing/Pricing";
+import Newsletter from "@/components/sections/newsletter/Newsletter";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <FeaturesBrief />
       <UserFlow />
       <Team />
-      <Pricing />
+      {/* <Pricing /> */}
       <Newsletter />
     </>
   );

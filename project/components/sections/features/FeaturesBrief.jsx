@@ -2,24 +2,23 @@
 
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Bell, Database, LayoutDashboard } from 'lucide-react';
 import Image from 'next/image';
 
 const features = [
   {
-    url: '/images/mobile/features/notifications-showcase.png',
+    url: '/images/sections/features/notifications-showcase.png',
     title: "Smart Notifications",
-    description: "Receive real-time alerts and stay updated when important changes happen",
+    description: "Receive real-time alerts and stay updated when important changes happen.",
   },
   {
-    url: '/images/mobile/features/sources-showcase.png',
+    url: '/images/sections/features/sources-showcase.png',
     title: "Multiple Sources",
-    description: "Connect 50+ data sources, including Stripe, Google Analytics, and more",
+    description: "Connect 50+ data sources, including Stripe, Google Analytics, and more.",
   },
   {
-    url: '/images/mobile/features/dashboard-showcase.png',
+    url: '/images/sections/features/dashboard-showcase.png',
     title: "Custom Dashboards",
-    description: "Add & remove 100+ metrics, instantly get access to your data history",
+    description: "Add & remove 100+ metrics, instantly get access to your data history.",
   },
 ];
 
@@ -61,6 +60,7 @@ const FeaturesBrief = () => {
                     alt={`${feature.title} icon`}
                     width={380}
                     height={317}
+                    className='h-auto'
                   />
                 </div>
                 <h3 className="font-heading text-xl font-semibold mb-3">

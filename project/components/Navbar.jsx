@@ -34,34 +34,25 @@ const Navbar = () => {
     )}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <BarChart2 className={`h-8 w-8 ${scrolled ? "text-royalBlue" : "text-cream"} transition-colors`} />
+          <BarChart2 className={`h-8 w-8 ${scrolled ? "text-steelBlue" : "text-cream"} transition-colors`} />
           <span className={`font-semibold text-xl md:text-2xl ${scrolled ? "text-black" : "text-cream"} transition-colors`}>Datlee</span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link href="#features" className={`${scrolled ? "text-black" : "text-cream"} hover:text-royalBlue transition-colors`}>
+          <Link href="#features" className={`${scrolled ? "text-black hover:text-royalBlue" : "text-cream"} hover:text-steelBlue transition-colors`}>
             Features
           </Link>
-          <Link href="#how-it-works" className={`${scrolled ? "text-black" : "text-cream"} hover:text-royalBlue transition-colors`}>
+          <Link href="#how-it-works" className={`${scrolled ? "text-black" : "text-cream"} hover:text-steelBlue transition-colors`}>
             How It Works
           </Link>
-          <Link href="#team" className={`${scrolled ? "text-black" : "text-cream"} hover:text-royalBlue transition-colors`}>
+          <Link href="#team" className={`${scrolled ? "text-black" : "text-cream"} hover:text-steelBlue transition-colors`}>
             Team
           </Link>
-          <Link href="#pricing" className={`${scrolled ? "text-black" : "text-cream"} hover:text-royalBlue transition-colors`}>
+          <Link href="#pricing" className={`${scrolled ? "text-black" : "text-cream"} hover:text-steelBlue transition-colors`}>
             Pricing
           </Link>
         </nav>
-
-        {/* <div className="hidden md:flex items-center space-x-4">
-          <Button variant="ghost" className="text-gray-700 hover:text-royalBlue hover:bg-white">
-            Login
-          </Button>
-          <Button className="bg-royalBlue hover:bg-royalBlue/90 text-white">
-            Create an account
-          </Button>
-        </div> */}
 
         {/* Mobile Navigation Toggle */}
         <button

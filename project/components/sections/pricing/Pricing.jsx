@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
-import PricingPlan from '@/components/PricingPlan';
+import PricingPlan from '@/components/sections/pricing/PricingPlan';
 import pricingPlans from '@/data/pricingPlans';
 
 const PricingSection = () => {
@@ -31,17 +31,18 @@ const PricingSection = () => {
   }, []);
   
   return (
-    <section ref={sectionRef} id="pricing" className="bg-cream py-20">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
-            Choose Your Plan
-          </h2>
-          <p className="text-lg text-gray-700">
-            Affordable pricing to suit your goals.
+    <section ref={sectionRef} id="pricing" className="bg-cream py-10 sm:py-16 md:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+        <div className="text-center max-w-xl sm:max-w-2xl md:max-w-4xl mx-auto mb-8 sm:mb-12 md:mb-16">
+          <p className="font-heading font-bold text-3xl md:text-4xl mb-4 leading-8">
+            <span className='m-2'>Choose your</span>
+            <span className='border rounded-xl bg-royalBlue p-2 px-4 text-white'>plan</span>
           </p>
+					<p className="text-base sm:text-lg text-xl md:text-xl text-gray-700 mt-3 sm:mt-4 md:mt-6 px-2 sm:px-4 md:px-0 mx-auto max-w-sm sm:max-w-md md:max-w-lg">
+						Affordable pricing to suit your goals.
+					</p>
 
-          <div className='flex gap-8'>
+          <div className='flex flex-col justify-center items-center md:flex-row gap-8 mt-10 items-stretch'>
             {pricingPlans.map((plan, i) => (
               <PricingPlan 
                 key={plan.id}
@@ -54,7 +55,7 @@ const PricingSection = () => {
                 footerText={plan.footerText}
                 isVisible={isVisible}
                 isPopular={plan.isPopular}
-                style={isVisible ? { transitionDelay: `${i * 100}ms` } : {}}
+                style={isVisible ? { transitionDelay: `${i * 200}ms` } : {}}
               />
             ))}
           </div>
