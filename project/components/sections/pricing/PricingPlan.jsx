@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import { Check, X, Star, ArrowRight, Info } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+// import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
 const PricingPlan = ({ title, price, interval, unit, features, buttonText, footerText, isVisible, isPopular, billingFrequency = "yearly" }) => {

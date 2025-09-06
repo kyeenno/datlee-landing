@@ -30,7 +30,7 @@ const FeaturesBrief = () => {
   }, []);
 
   return (
-    <section className="py-16 w-full" id='features-brief'>
+    <section className="py-16 w-full" id='features'>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="font-heading font-bold text-3xl md:text-4xl mb-4 leading-8">

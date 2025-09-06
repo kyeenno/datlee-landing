@@ -48,7 +48,7 @@ const Newsletter = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-20 bg-cream relative overflow-hidden" id="newsletter">
+    <section ref={sectionRef} className="py-20 bg-royalBlue relative overflow-hidden" id="newsletter">
       <div className="max-w-5xl mx-auto px-6 md:px-12 relative z-10">
         <div className={cn(
           "bg-white rounded-2xl shadow-lg p-8 md:p-12 relative overflow-hidden transition-all duration-700 transform border-2 border-steelBlue/20",

@@ -34,13 +34,13 @@ const Navbar = () => {
     )}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <BarChart2 className={`h-8 w-8 ${scrolled ? "text-steelBlue" : "text-cream"} transition-colors`} />
+          <BarChart2 className={`h-8 w-8 ${scrolled ? "text-royalBlue" : "text-cream"} transition-colors`} />
           <span className={`font-semibold text-xl md:text-2xl ${scrolled ? "text-black" : "text-cream"} transition-colors`}>Datlee</span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link href="#features" className={`${scrolled ? "text-black hover:text-royalBlue" : "text-cream"} hover:text-steelBlue transition-colors`}>
+          <Link href="#features" className={`${scrolled ? "text-royalBlue hover:text-royalBlue" : "text-cream"} hover:text-steelBlue transition-colors`}>
             Features
           </Link>
           <Link href="#how-it-works" className={`${scrolled ? "text-black" : "text-cream"} hover:text-steelBlue transition-colors`}>
@@ -66,32 +66,32 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[72px] bg-white z-40 animate-fade-in">
-          <div className="flex flex-col p-6 space-y-6">
+        <div className={` ${scrolled ? "bg-white" : "bg-royalBlue"} md:hidden fixed inset-0 top-[72px] z-40 animate-fade-in m-0`}>
+          <div className={` ${scrolled ? "text-gray-700" : "text-white"} flex flex-col p-6 space-y-6`}>
             <Link
               href="#features"
-              className="text-lg font-medium text-gray-700 hover:text-royalBlue"
+              className={`text-lg font-medium ${scrolled ? "hover:text-gray-500" : "hover:text-gray-300"}`}
               onClick={toggleMenu}
             >
               Features
             </Link>
             <Link
               href="#how-it-works"
-              className="text-lg font-medium text-gray-700 hover:text-royalBlue"
+              className={`text-lg font-medium ${scrolled ? "hover:text-gray-500" : "hover:text-gray-300"}`}
               onClick={toggleMenu}
             >
               How It Works
             </Link>
             <Link
               href="#team"
-              className="text-lg font-medium text-gray-700 hover:text-royalBlue"
+              className={`text-lg font-medium ${scrolled ? "hover:text-gray-500" : "hover:text-gray-300"}`}
               onClick={toggleMenu}
             >
               Team
             </Link>
             <Link
               href="#pricing"
-              className="text-lg font-medium text-gray-700 hover:text-royalBlue"
+              className={`text-lg font-medium ${scrolled ? "hover:text-gray-500" : "hover:text-gray-300"}`}
               onClick={toggleMenu}
             >
               Pricing
